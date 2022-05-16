@@ -1,0 +1,24 @@
+# cluster scope
+
+gcloud beta container clusters create kafka-cluster \
+  --cluster-dns clouddns --cluster-dns-scope cluster \
+  --cluster-version 1.21.11 \
+  --zone us-west1-a \
+  --network wynyard-vpc \
+  --subnetwork wynyard-public-sn 
+
+# vpc scope  
+  
+  gcloud beta container clusters create kafka-cluster \
+  --cluster-dns clouddns --cluster-dns-scope vpc \
+  --cluster-dns-domain sinu.io \
+  --cluster-version 1.21.11 \
+  --zone us-west1-a \
+  --network wynyard-vpc \
+  --subnetwork wynyard-public-sn 
+
+  gcloud beta container clusters create kafka-cluster \
+  --cluster-version 1.21.11 \
+  --zone us-west1-a \
+  --network wynyard-vpc \
+  --subnetwork wynyard-public-sn 

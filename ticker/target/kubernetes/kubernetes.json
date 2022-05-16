@@ -1,0 +1,81 @@
+{
+  "apiVersion" : "v1",
+  "kind" : "ServiceAccount",
+  "metadata" : {
+    "annotations" : {
+      "app.quarkus.io/commit-id" : "aa7f653bc92f7459c6502836f1046e8ab24e6d6a",
+      "app.quarkus.io/build-timestamp" : "2022-05-10 - 06:33:22 +0000"
+    },
+    "labels" : {
+      "app.kubernetes.io/version" : "1.0-SNAPSHOT",
+      "app.kubernetes.io/name" : "event-bus-ticker"
+    },
+    "name" : "event-bus-ticker"
+  }
+}{
+  "apiVersion" : "rbac.authorization.k8s.io/v1",
+  "kind" : "RoleBinding",
+  "metadata" : {
+    "name" : "event-bus-ticker-view"
+  },
+  "roleRef" : {
+    "kind" : "ClusterRole",
+    "apiGroup" : "rbac.authorization.k8s.io",
+    "name" : "view"
+  },
+  "subjects" : [ {
+    "kind" : "ServiceAccount",
+    "name" : "event-bus-ticker"
+  } ]
+}{
+  "apiVersion" : "apps/v1",
+  "kind" : "Deployment",
+  "metadata" : {
+    "annotations" : {
+      "app.quarkus.io/commit-id" : "aa7f653bc92f7459c6502836f1046e8ab24e6d6a",
+      "app.quarkus.io/build-timestamp" : "2022-05-10 - 06:33:22 +0000"
+    },
+    "labels" : {
+      "app.kubernetes.io/version" : "1.0-SNAPSHOT",
+      "app.kubernetes.io/name" : "event-bus-ticker"
+    },
+    "name" : "event-bus-ticker"
+  },
+  "spec" : {
+    "replicas" : 1,
+    "selector" : {
+      "matchLabels" : {
+        "app.kubernetes.io/version" : "1.0-SNAPSHOT",
+        "app.kubernetes.io/name" : "event-bus-ticker"
+      }
+    },
+    "template" : {
+      "metadata" : {
+        "annotations" : {
+          "app.quarkus.io/commit-id" : "aa7f653bc92f7459c6502836f1046e8ab24e6d6a",
+          "app.quarkus.io/build-timestamp" : "2022-05-10 - 06:33:22 +0000"
+        },
+        "labels" : {
+          "app.kubernetes.io/version" : "1.0-SNAPSHOT",
+          "app.kubernetes.io/name" : "event-bus-ticker"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "env" : [ {
+            "name" : "KUBERNETES_NAMESPACE",
+            "valueFrom" : {
+              "fieldRef" : {
+                "fieldPath" : "metadata.namespace"
+              }
+            }
+          } ],
+          "image" : "srinivasabokka/event-bus-ticker:1.0-SNAPSHOT",
+          "imagePullPolicy" : "Always",
+          "name" : "event-bus-ticker"
+        } ],
+        "serviceAccountName" : "event-bus-ticker"
+      }
+    }
+  }
+}
