@@ -1,0 +1,5 @@
+kubectl create ns strimzi 
+kubectl create ns kafka
+helm repo add strimzi https://strimzi.io/charts            3
+helm install strimzi strimzi/strimzi-kafka-operator -n strimzi \
+    --set watchNamespaces={kafka} --wait --timeout 300s

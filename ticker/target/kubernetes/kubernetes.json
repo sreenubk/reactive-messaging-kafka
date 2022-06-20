@@ -3,12 +3,12 @@
   "kind" : "ServiceAccount",
   "metadata" : {
     "annotations" : {
-      "app.quarkus.io/commit-id" : "aa7f653bc92f7459c6502836f1046e8ab24e6d6a",
-      "app.quarkus.io/build-timestamp" : "2022-05-10 - 06:33:22 +0000"
+      "app.quarkus.io/commit-id" : "cd21eb1235c1e00d58eb37ce1c3de14cadacf5ae",
+      "app.quarkus.io/build-timestamp" : "2022-06-19 - 22:46:06 +0000"
     },
     "labels" : {
-      "app.kubernetes.io/version" : "1.0-SNAPSHOT",
-      "app.kubernetes.io/name" : "event-bus-ticker"
+      "app.kubernetes.io/name" : "event-bus-ticker",
+      "app.kubernetes.io/version" : "1.0-SNAPSHOT"
     },
     "name" : "event-bus-ticker"
   }
@@ -32,12 +32,12 @@
   "kind" : "Deployment",
   "metadata" : {
     "annotations" : {
-      "app.quarkus.io/commit-id" : "aa7f653bc92f7459c6502836f1046e8ab24e6d6a",
-      "app.quarkus.io/build-timestamp" : "2022-05-10 - 06:33:22 +0000"
+      "app.quarkus.io/commit-id" : "cd21eb1235c1e00d58eb37ce1c3de14cadacf5ae",
+      "app.quarkus.io/build-timestamp" : "2022-06-19 - 22:46:06 +0000"
     },
     "labels" : {
-      "app.kubernetes.io/version" : "1.0-SNAPSHOT",
-      "app.kubernetes.io/name" : "event-bus-ticker"
+      "app.kubernetes.io/name" : "event-bus-ticker",
+      "app.kubernetes.io/version" : "1.0-SNAPSHOT"
     },
     "name" : "event-bus-ticker"
   },
@@ -45,19 +45,19 @@
     "replicas" : 1,
     "selector" : {
       "matchLabels" : {
-        "app.kubernetes.io/version" : "1.0-SNAPSHOT",
-        "app.kubernetes.io/name" : "event-bus-ticker"
+        "app.kubernetes.io/name" : "event-bus-ticker",
+        "app.kubernetes.io/version" : "1.0-SNAPSHOT"
       }
     },
     "template" : {
       "metadata" : {
         "annotations" : {
-          "app.quarkus.io/commit-id" : "aa7f653bc92f7459c6502836f1046e8ab24e6d6a",
-          "app.quarkus.io/build-timestamp" : "2022-05-10 - 06:33:22 +0000"
+          "app.quarkus.io/commit-id" : "cd21eb1235c1e00d58eb37ce1c3de14cadacf5ae",
+          "app.quarkus.io/build-timestamp" : "2022-06-19 - 22:46:06 +0000"
         },
         "labels" : {
-          "app.kubernetes.io/version" : "1.0-SNAPSHOT",
-          "app.kubernetes.io/name" : "event-bus-ticker"
+          "app.kubernetes.io/name" : "event-bus-ticker",
+          "app.kubernetes.io/version" : "1.0-SNAPSHOT"
         }
       },
       "spec" : {
@@ -70,7 +70,7 @@
               }
             }
           } ],
-          "image" : "srinivasabokka/event-bus-ticker:1.0-SNAPSHOT",
+          "image" : "sb8299/event-bus-ticker:1.0-SNAPSHOT",
           "imagePullPolicy" : "Always",
           "name" : "event-bus-ticker"
         } ],
